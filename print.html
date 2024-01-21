@@ -3,141 +3,69 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Blood Monitoring(print)</title>
-		<style type="text/css">
-		header{
-			background-color: #33cc33;
-			height: 100px;
-			text-align: center;
-			padding-top: 20px;
-		}
-		section{
-			background-color: #e0e0d1;
-			height: 400px;
-		}
-		footer{
-		    background-color: #33cc33;
-			height: 50px;
-			text-align: center;
-			
-		}
-		</style>
+
+		<link rel="stylesheet" href="style.css">
+		
+		<script src="script.js" defer></script>
 	</head>
 	<body>
 		<header>
-			<h1>სისხლში გლიკემიის მონიტორინგი(print)</h1>
+			<h1>სისხლში გლიკემიის მონიტორინგი (print)</h1>
 		</header>
+		
+
 		<section>
-			<article>
-				<script>
-					// Get the URL
-					var url = window.location.href;
-
-					// Use the URLSearchParams API to parse the query parameters
-					var urlParams = new URLSearchParams(url);
-
-					// Get the values for each parameter
-					var Pmpn = urlParams.get('Pmpn');
-					var Fname = urlParams.get('Fname');
-					var Lname = urlParams.get('Lname');
-					var TariRi = urlParams.get('TariRi');
-					var Uzmomin = urlParams.get('Uzmomin');
-					var uzmomax = urlParams.get('uzmomax');
-					var samxarimin = urlParams.get('samxarimin');
-					var samxarimax = urlParams.get('samxarimax');
-					var sadilimin = urlParams.get('sadilimin');
-					var sadilimax = urlParams.get('sadilimax');
-					var vaxSamimin = urlParams.get('vaxSamimin');
-					var vaxSamimax = urlParams.get('vaxSamimax');
-
-					// Log or use the values as needed
-					console.log('Pmpn:', Pmpn);
-					console.log('Fname:', Fname);
-					console.log('Lname:', Lname);
-					console.log('TariRi:', TariRi);
-					console.log('Uzmomin:', Uzmomin);
-					console.log('uzmomax:', uzmomax);
-					console.log('samxarimin:', samxarimin);
-					console.log('samxarimax:', samxarimax);
-					console.log('sadilimin:', sadilimin);
-					console.log('sadilimax:', sadilimax);
-					console.log('vaxSamimin:', vaxSamimin);
-					console.log('vaxSamimax:', vaxSamimax);
-
-				</script>
-				<!--<form action="print.html" method="get">-->
-					<table border=0 align="center">
+				<form>
+					<table align="center">
 					  <tr>
 					    <td>პირადობა(11 ციფრი):</td>
-						<td> <input type="text" maxlength="11" id="pmpn"></td>
+						<td> <input type="text" maxlength="11" id="id"></td>
 					  </tr>
 					  <tr>
 					    <td>სახელი:</td>
-						<td><input type="text" id="fname"><td>
+						<td><input type="text" id="name"><td>
 					  </tr>
 					  <tr>
 					    <td>გვარი:</td>
-						<td><input type="text"  id="lname"><td>
+						<td><input type="text"  id="surname"><td>
 					  </tr>
 					  <tr>
 					    <td>თარიღი:</td>
-						<td><input type="date"  id="tarigi"><td>
+						<td><input type="date"  id="date"><td>
 					  </tr>
 					  <tr>
 					    <td>გლიკემია 09:00(უზმო):</td>
-						<td>
-						  <input type="number" min="1" max="700" id="uzmo_1"> 
-						  11:00<input type="number" min="1" max="700" id="uzmo_2">
-						<td>
+						<td><input type="number" min="1" max="700" id="uzmo_min"> 
+						  11:00<input type="number" min="1" max="700" id="uzmo_max"><td></td>
 					  </tr>
 					 <tr>
 					    <td>გლიკემია 12:00(სამხარი):</td>
-						<td>
-						  <input type="number" min="1" max="700" id="samxari_1"> 
-						  14:00<input type="number" min="1" max="700" id="samxari_2">
-						<td>
+						<td><input type="number" min="1" max="700" id="samxari_min"> 
+						  14:00<input type="number" min="1" max="700" id="samxari_max"><td>
 					  </tr>
 					  <tr>
 					    <td>გლიკემია 15:00(სადილი):</td>
-						<td>
-						  <input type="number" min="1" max="700" id="sadili_1"> 
-						  17:00<input type="number" min="1" max="700" id="sadili_2">
-						<td>
+						<td><input type="number" min="1" max="700" id="sadili_min"> 
+						  17:00<input type="number" min="1" max="700" id="sadili_max"><td>
 					  </tr>
 					  <tr>
 					    <td>გლიკემია 20:00(ვახშამი):</td>
-						<td>
-						  <input type="number" min="1" max="700" id="vaxSami_1"> 
-						  22:00<input type="number" min="1" max="700" id="vaxSami_2">
-						<td>
+						<td><input type="number" min="1" max="700" id="vaxshami_min"> 
+						  22:00<input type="number" min="1" max="700" id="vaxshami_max"><td>
 					  </tr>
 					  <tr>
 					    <td align="right"><h3>საშუალო = </h3></td>
-						<td><h3 id="saSualo"></h3><td>
+						<td><h3 id="average"></h3><td>
 					  </tr>
-					<table>
-					<script>
-						document.getElementById("pmpn").value      = Pmpn;
-						document.getElementById("fname").value     = Fname;
-						document.getElementById("lname").value     = Lname;
-						document.getElementById("tarigi").value    = TariRi;
-						document.getElementById("uzmo_1").value    = Uzmomin;
-						document.getElementById("uzmo_2").value    = uzmomax;
-						document.getElementById("samxari_1").value = samxarimin;
-						document.getElementById("samxari_2").value = samxarimax;
-						document.getElementById("sadili_1").value  = sadilimin;
-						document.getElementById("sadili_2").value  = sadilimax;
-						document.getElementById("vaxSami_1").value = vaxSamimin;
-						document.getElementById("vaxSami_2").value = vaxSamimax;
-						
-						let min_saSualo = (Uzmomin + samxarimin + sadilimin + vaxSamimin)/4;
-						let max_saSualo = (uzmomax + samxarimax + sadilimax + vaxSamimax)/4;
-						document.getElementById("saSualo").innerHTML = min_saSualo + " : " + max_saSualo;
-					</script>
-				<!--</form>-->
-			</article>
-		</section>
+					</table>
+				</form>
+		</section>	
+
+				
+
 		<footer>
-			<h2>&copy;ყველა უფლება დაცულია 2023</h2>
+			<h4>&copy;ყველა უფლება დაცულია <script>document.write(new Date().getFullYear());</script></h4>
 		</footer>
+
 	</body>
 </html>
