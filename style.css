@@ -1,0 +1,23 @@
+body{
+    margin:0;
+}
+header{
+    background: linear-gradient(to bottom,#3C0606, #8A0303);
+    text-align: center;
+    padding: 10px;
+}
+section{
+    background-color: #ffffff;
+    margin: 30px;
+}
+footer{
+    background: linear-gradient(to top,#3C0606, #8A0303);
+    text-align: center;
+    padding: 3px;
+}
+h1{
+    color: white;
+}
+h4{ 
+    color: white;
+}
